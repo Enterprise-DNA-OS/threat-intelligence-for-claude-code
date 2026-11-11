@@ -1,0 +1,3 @@
+Type,Indicator,Context
+domain,supplier-login[.]example,Synthetic training indicator
+ipv4,192.0.2.20,Synthetic documentation address

@@ -1,13 +1,42 @@
 [
   {
-    "name": "week",
-    "title": "This week",
-    "subtitle": "Threat Intelligence for Claude Code: what needs attention, rendered by npm run view",
+    "name": "morning",
+    "title": "Morning intelligence desk",
+    "subtitle": "Private operator view. Review source restrictions before sharing.",
     "sections": [
       {
-        "title": "Needs attention",
-        "note": "TODO(author): point this at the industry's attention view (overdue, stuck, quiet).",
-        "sql": "select 'replace me' as item, 'TODO(author)' as why"
+        "title": "Reports due for review",
+        "sql": "select * from triage_queue order by review_due,ref"
+      },
+      {
+        "title": "Accepted indicators due within a week",
+        "sql": "select * from indicator_register where status='accepted' and expires_on<=current_date+7 order by expires_on,ref"
+      }
+    ]
+  },
+  {
+    "name": "coverage",
+    "title": "Intelligence coverage",
+    "subtitle": "Private operator view",
+    "sections": [
+      {
+        "title": "Requirements and evidence",
+        "sql": "select * from intelligence_gaps order by priority,ref"
+      },
+      {
+        "title": "Record checks",
+        "sql": "select * from compliance_findings order by ref,rule"
+      }
+    ]
+  },
+  {
+    "name": "actions",
+    "title": "Intelligence follow-through",
+    "subtitle": "Private operator view",
+    "sections": [
+      {
+        "title": "Actions and evidence",
+        "sql": "select * from action_register order by due_on,ref"
       }
     ]
   }
