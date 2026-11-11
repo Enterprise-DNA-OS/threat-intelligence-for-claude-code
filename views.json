@@ -10,7 +10,15 @@
       },
       {
         "title": "Accepted indicators due within a week",
-        "sql": "select * from indicator_register where status='accepted' and expires_on<=current_date+7 order by expires_on,ref"
+        "sql": "select * from indicator_register where status='accepted' and expires_on<=current_date+7 order by expires_on,ref",
+        "columns": [
+          "ref",
+          "value",
+          "status",
+          "confidence",
+          "expires_on",
+          "sources"
+        ]
       }
     ]
   },
